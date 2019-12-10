@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 import BigButton from "./BigButton";
-import Firebase from '../../../firebase'
+import Firebase from '../../../services/Firebase'
 import * as Facebook from 'expo-facebook';
 import { withNavigation } from 'react-navigation'
 import { Alert } from 'react-native'
 
-import { facebookAuth } from '../../../constants/AUTHKEYS'
+import { facebookAuth } from '../../../constants/apiKeys'
 
 const Text = styled.Text`
   margin-left: 10px;
@@ -31,8 +31,8 @@ const LoginFacebook = async (navigation) => {
     .catch(error => {
       Alert.alert('Error', 'Error al iniciar sesión')
     })
-
   }
+  
 }
 
 const FacebookButton = ({navigation}) => (

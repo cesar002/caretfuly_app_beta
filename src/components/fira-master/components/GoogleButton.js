@@ -4,10 +4,8 @@ import {Platform} from 'react-native'
 import { Ionicons } from "@expo/vector-icons";
 import { withNavigation } from 'react-navigation'
 import BigButton from "./BigButton";
-import {Firebase} from '../../../firebase'
-import { googleAuth } from '../../../constants/AUTHKEYS'
-import * as Google from 'expo-google-sign-in'
-import { authAsync } from 'expo-app-auth'
+import { Firebase } from '../../../services/Firebase'
+import { googleAuth } from '../../../constants/apiKeys'
 
 const Text = styled.Text`
   margin-left: 10px;
@@ -16,13 +14,13 @@ const Text = styled.Text`
 const loginGoogle = async (navigation) =>{
   try{
 
-      await Google.initAsync({
-        clientId: Platform.OS === 'ios'? googleAuth.ios : googleAuth.android
-      })
-      await Google.askForPlayServicesAsync();
-      const data = await Google.signInAsync()
+      // await Google.initAsync({
+      //   clientId: Platform.OS === 'ios'? googleAuth.ios : googleAuth.android
+      // })
+      // await Google.askForPlayServicesAsync();
+      // const data = await Google.signInAsync()
 
-      console.log(data)
+      // console.log(data)
     // const result = await Google.logInAsync({
     //   androidClientId: googleAuth.android,
     //   iosClientId: googleAuth.ios,
