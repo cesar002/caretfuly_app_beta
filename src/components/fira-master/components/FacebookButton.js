@@ -14,24 +14,33 @@ const Text = styled.Text`
 `;
 
 const LoginFacebook = async (navigation) => {
-  const data = await Facebook.logInWithReadPermissionsAsync(facebookAuth.AppID, {permissions: ['public_profile']})
 
-  if(data.type === 'success'){
+  try{
+    // await Facebook.initializeAsync(facebookAuth.AppID);
+    const data = await Facebook.logInWithReadPermissionsAsync({
+      permissions: ['public_profile'],
+    });
 
-    const credential = Firebase.auth.FacebookAuthProvider.credential(data.token);
-
-    Firebase.auth().signInWithCredential(credential)
-    .then(()=>{
-      Firebase.auth().onAuthStateChanged(user => {
+    if(data.type === 'success'){
+      const credential = Firebase.auth.FacebookAuthProvider.credential(data.token);
+      firebase.auth().signInWithCredential(credential)
+      .then(()=>{
+        firebase.auth().onAuthStateChanged(user => {
           if(user !== null){
-              navigation.navigate('App')
+            navigation.navigate('App')
           }
+        })
       })
-    })
-    .catch(error => {
-      Alert.alert('Error', 'Error al iniciar sesión')
-    })
-  }
+      .catch(e => {
+        console.log(e)
+        Alert.alert('Error', 'Error al iniciar sesión')
+      })
+    }
+
+  }catch(error){
+    console.log(error)
+    Alert.alert('Error', 'Error al iniciar sesión')
+  }  
   
 }
 

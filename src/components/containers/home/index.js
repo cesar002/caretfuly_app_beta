@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import {Screen} from '@shoutem/ui'
 import Header from '../../pures/Header'
 
 class Home extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <Screen>
                 <Header titulo = 'HOME' toBack backgroundImageURL = 'https://www.eldiario.es/fotos/Imagen-Cafetin_EDIIMA20170712_0627_4.jpg'/>
-                <View>
-                    <Text> HOME </Text>
-                </View>
-            </React.Fragment>
+                <Text>HOME</Text>
+            </Screen>
         );
     }
 }
