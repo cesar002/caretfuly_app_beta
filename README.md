@@ -1,4 +1,4 @@
-# caretfuly_app_beta
+# cartfuly_app_beta
 Aplicación de compras desde tu celular hacia un supermercado
 
 se intentaba con esta app hacer un negocio de delivery similar a rappi o justo pero en la ciudad de xalapa.
